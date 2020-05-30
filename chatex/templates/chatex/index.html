@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chatex with Rooms</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+    <form>
+        <div class="form-group">
+            <label for="room-name-input">Chat room name:</label><br>
+            <input id="room-name-input" type="text" size="20" required><br>
+        </div>
+        <div class="form-group">
+            <label for="user-name-input">Your nickname:</label><br>
+            <input id="user-name-input" type="text" size="20" required><br>
+        </div>
+        <input id="room-name-submit" class="btn btn-primary" type="button" value="Enter">
+    </form>
+    </div>
+
+{#    What chat room would you like to enter?<br>#}
+{#    <input id="room-name-input" type="text" size="100"><br>#}
+{#    <input id="room-name-submit" type="button" value="Enter">#}
+
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/' + roomName + '/';
+        };
+    </script>
+</body>
+</html>
